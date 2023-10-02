@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Episódios</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropbtn{
+      background-color: #17A2B8;
+      color: black;
+      padding: 8px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown:hover .dropbtn {
+      background-color: #12899C;
+    }
+    .arrow {
+      border: solid;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      margin: 2px;
+    }
+    .down {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="/">BalasFlix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="/">Home</a>
+          </li>
+        <div class = "dropdown">
+        <button class = "nav-link text-dark dropbtn">Filmes <i class = "arrow down"></i></button>
+        <div class = "dropdown-content">
+          <a href = "/filme">Filmes</a>
+          <a href = "/filme_ator">Filmes com seus atores</a>
+        </div>
+        </div>
+        <div class = "dropdown">
+        <button class = "nav-link text-dark dropbtn">Séries <i class = "arrow down"></i></button>
+        <div class = "dropdown-content">
+          <a href = "/serie">Séries</a>
+          <a href = "/serie_episodio">Séries com episódios</a>
+          <a href = "/temporada">Temporadas</a>
+          <a href = "/episodio">Episódios</a>
+        </div>
+        </div>
+        <div class = "dropdown">
+          <button class = "nav-link text-dark dropbtn">Pessoas <i class = "arrow down"></i></button>
+          <div class = "dropdown-content">
+            <a href = "/diretor">Diretores</a>
+            <a href = "/ator">Atores</a>
+          </div>
+          </div>
+        <div class = "dropdown">
+          <button class = "nav-link text-dark dropbtn">Outros <i class = "arrow down"></i></button>
+          <div class = "dropdown-content">
+            <a href = "/nacionalidade">Nacionalidades</a>
+            <a href = "/continente">Continentes</a>
+            <a href = "/pais">Países</a>
+          </div>
+          </div>
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="/categoria/">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/admin/">Administração</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Episódios</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Duração</th>
+              <th scope="col">Data de disponibilização</th>
+            </tr>
+            {% for Episodio in consultas %}
+          </thead>
+          <tbody>
+           <td>{{Episodio.nome}}</td>
+           <td>{{Episodio.duracao}}</td>
+           <td>{{Episodio.data_disponibilizacao}}</td>
+          </tbody>
+           {% endfor %} 
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluindo jQuery e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
